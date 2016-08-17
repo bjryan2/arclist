@@ -20,7 +20,7 @@ class PhabClient(object):
         if not diff_phids:
             diff_phids = []
 
-        return self.client.harbormaster.querybuildables(buildablePHIDs=diffPhids)
+        return self.client.harbormaster.querybuildables(buildablePHIDs=diff_phids)
 
 
 class Color (object):
@@ -37,11 +37,11 @@ def format_string(color, value):
 
 
 def format_diff_status(status):
-    if status == "Accepted":
+    if status == 'Accepted':
         color = Color.OKGREEN
-    elif status == "Needs Review":
+    elif status == 'Needs Review':
         color = Color.WARNING
-    elif status == "Rejected":
+    elif status == 'Rejected':
         color = color.FAIL
     else:
         color = color.ENDC
@@ -55,9 +55,9 @@ def format_link(value):
 
 def format_buildable_status(status):
     color = Color.FAIL
-    if status == "Passed":
+    if status == 'Passed':
         color = Color.OKGREEN
-    elif status == "Failed":
+    elif status == 'Failed':
         color = Color.WARNING
     else:
         color = Color.HEADER
@@ -65,8 +65,7 @@ def format_buildable_status(status):
     return format_string(color, status)
 
 
-if __name__ == '__main__':
-
+def main():
     phid_to_buildable = defaultdict(lambda: {})
 
     client = PhabClient()
@@ -86,3 +85,6 @@ if __name__ == '__main__':
             format_diff_status(diff.get('statusName')),
             format_link(diff.get('uri')),
             format_buildable_status(phid_to_buildable[diff.get('activeDiffPHID')].get('buildableStatusName')))
+
+if __name__ == '__main__':
+    main()

@@ -2,4 +2,4 @@
 setup.cfg
 setup.py
 arclist/__init__.py
-arclist/main.py
+arclist/cmd.py
