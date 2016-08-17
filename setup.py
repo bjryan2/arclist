@@ -7,8 +7,8 @@ setup(
   description = 'lists open phabricator diffs and their build / accept statuses',
   author = 'Brendan Ryan',
   author_email = 'ryan.brendanjohn@gmail.com',
-  url = 'http://brendanjryan.com',
-  download_url = 'http://brendanjryan.com',
+  url = 'https://github.com/bjryan2/arclist',
+  download_url = 'https://github.com/bjryan2/arclist',
   keywords = [],
   classifiers = [],
 )
