@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from phabricator import Phabricator
 from collections import defaultdict
 
